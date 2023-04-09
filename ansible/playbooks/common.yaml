@@ -1,0 +1,13 @@
+- name: install common tools
+  hosts: fedora
+  tasks:
+  - name: install common tools
+    dnf:
+      name:
+      - ack
+      - bat
+      - btop
+      - git-delta
+      - jq
+      - tmux
+      - vim
