@@ -42,7 +42,11 @@
   tasks:
   - name: install tools
     dnf:
-      name: git
+      name:
+      - ack
+      - git
+      - tmux
+      - vim
   - name: checkout config
     git:
       repo: "git@github.com:tyholling/config.git"
