@@ -19,3 +19,10 @@
     systemd:
       name: k3s
       state: started
+  - name: remove kubectl symlink
+    shell: if [[ -L /usr/local/bin/kubectl ]]; then rm /usr/local/bin/kubectl; fi
+  - name : install tools
+    dnf:
+      name:
+      - helm
+      - kubernetes-client
