@@ -25,15 +25,15 @@
   hosts: fedora
   become: yes
   tasks:
-  - name: install ssh public key
-    copy:
-      src: ~/.ssh/id_ed25519.pub
-      dest: /root/.ssh/id_ed25519.pub
-      mode: 0400
   - name: install ssh private key
     copy:
       src: ~/.ssh/id_ed25519
       dest: /root/.ssh/id_ed25519
+      mode: 0400
+  - name: install ssh public key
+    copy:
+      src: ~/.ssh/id_ed25519.pub
+      dest: /root/.ssh/id_ed25519.pub
       mode: 0400
 
 - name: install config
@@ -42,13 +42,7 @@
   tasks:
   - name: install tools
     dnf:
-      name:
-      - ack
-      - bat
-      - git
-      - jq
-      - tmux
-      - vim
+      name: git
   - name: checkout config
     git:
       repo: "git@github.com:tyholling/config.git"
