@@ -1,0 +1,21 @@
+- name: install k3s
+  hosts: fedora
+  tasks:
+  - name: install k3s
+    shell: |
+      curl -sfL https://get.k3s.io | sh -
+      kubectl completion bash > /etc/bash_completion.d/kubectl.sh
+      mkdir -p /root/.kube
+      cp /etc/rancher/k3s/k3s.yaml /root/.kube/config
+  - name: stop k3s service
+    systemd:
+      name: k3s
+      state: stopped
+  - name: add localhost registry
+    copy:
+      src: ./k3s/registries.yaml
+      dest: /etc/rancher/k3s/registries.yaml
+  - name: start k3s service
+    systemd:
+      name: k3s
+      state: started
