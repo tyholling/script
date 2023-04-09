@@ -1,6 +1,5 @@
 - name: purge config
   hosts: fedora
-  become: yes
   tasks:
   - name: remove anaconda kickstart config
     file: { state: "absent", path: "/root/anaconda-ks.cfg" }
@@ -23,7 +22,6 @@
 
 - name: install ssh keys
   hosts: fedora
-  become: yes
   tasks:
   - name: install ssh private key
     copy:
@@ -38,7 +36,6 @@
 
 - name: install config
   hosts: fedora
-  become: yes
   tasks:
   - name: install tools
     dnf:
