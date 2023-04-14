@@ -1,0 +1,8 @@
+- name: install golang
+  hosts: fedora
+  tasks:
+  - name: install golang
+    shell: |
+      cd $(mktemp -d)
+      wget https://go.dev/dl/go1.20.3.linux-arm64.tar.gz
+      tar xf go1.20.3.linux-arm64.tar.gz -C /usr/local
