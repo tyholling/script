@@ -1,5 +1,5 @@
 - name: purge config
-  hosts: fedora
+  hosts: all
   tasks:
   - name: remove anaconda kickstart config
     file: { state: "absent", path: "/root/anaconda-ks.cfg" }
@@ -15,13 +15,15 @@
     file: { state: "absent", path: "/root/.bashrc" }
   - name: remove cshrc
     file: { state: "absent", path: "/root/.cshrc" }
+  - name: remove profile
+    file: { state: "absent", path: "/root/.profile" }
   - name: remove tcshrc
     file: { state: "absent", path: "/root/.tcshrc" }
   - name: remove viminfo
     file: { state: "absent", path: "/root/.viminfo" }
 
 - name: install ssh keys
-  hosts: fedora
+  hosts: all
   tasks:
   - name: install ssh private key
     copy:
@@ -34,13 +36,23 @@
       dest: /root/.ssh/id_ed25519.pub
       mode: 0400
 
-- name: install config
+- name: install git
+  hosts: debian
+  tasks:
+  - name: install git
+    apt:
+      name: git
+
+- name: install git
   hosts: fedora
   tasks:
   - name: install git
     dnf:
-      name:
-      - git
+      name: git
+
+- name: install config
+  hosts: all
+  tasks:
   - name: checkout config
     git:
       repo: "git@github.com:tyholling/config.git"

@@ -1,22 +1,14 @@
 qemu:
   hosts:
     debian:
-      ansible_host: 192.168.64.4
       ansible_user: root
-      ansible_connection: ssh
     fedora:
-      ansible_host: 192.168.64.6
       ansible_user: root
-      ansible_connection: ssh
     oracle:
-      ansible_host: 192.168.64.15
       ansible_user: root
-      ansible_connection: ssh
     photon:
-      ansible_host: 192.168.64.16
       ansible_user: root
-      ansible_connection: ssh
+    redhat:
+      ansible_user: root
     ubuntu:
-      ansible_host: 192.168.64.21
       ansible_user: root
-      ansible_connection: ssh
