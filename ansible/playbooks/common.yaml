@@ -1,4 +1,16 @@
 - name: install common tools
+  hosts: debian
+  tasks:
+  - apt:
+      name:
+      - ack
+      - bat
+      - btop
+      - jq
+      - tmux
+      - vim
+
+- name: install common tools
   hosts: fedora
   tasks:
   - name: install common tools
