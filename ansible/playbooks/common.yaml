@@ -6,7 +6,9 @@
       - ack
       - bat
       - btop
+      - git
       - jq
+      - kubernetes-client
       - podman
       - tmux
       - vim
@@ -20,7 +22,36 @@
       - ack
       - bat
       - btop
+      - git
       - git-delta
+      - helm
+      - jq
+      - kubernetes-client
+      - podman
+      - tmux
+      - vim
+
+- name: install common tools
+  hosts: oracle, redhat
+  tasks:
+  - name: install common tools
+    dnf:
+      name:
+      - git
+      - jq
+      - podman
+      - tmux
+      - vim
+
+- name: install common tools
+  hosts: ubuntu
+  tasks:
+  - apt:
+      name:
+      - ack
+      - bat
+      - btop
+      - git
       - jq
       - podman
       - tmux

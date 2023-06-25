@@ -1,10 +1,6 @@
 - name: purge config
   hosts: all
   tasks:
-  - name: remove anaconda kickstart config
-    file: { state: "absent", path: "/root/anaconda-ks.cfg" }
-  - name: remove original kickstart config
-    file: { state: "absent", path: "/root/original-ks.cfg" }
   - name: remove bash history
     file: { state: "absent", path: "/root/.bash_history" }
   - name: remove bash logout
@@ -21,6 +17,10 @@
     file: { state: "absent", path: "/root/.tcshrc" }
   - name: remove viminfo
     file: { state: "absent", path: "/root/.viminfo" }
+  - name: remove anaconda kickstart config
+    file: { state: "absent", path: "/root/anaconda-ks.cfg" }
+  - name: remove original kickstart config
+    file: { state: "absent", path: "/root/original-ks.cfg" }
 
 - name: install ssh keys
   hosts: all
@@ -35,20 +35,6 @@
       src: ~/.ssh/id_ed25519.pub
       dest: /root/.ssh/id_ed25519.pub
       mode: 0400
-
-- name: install git
-  hosts: debian
-  tasks:
-  - name: install git
-    apt:
-      name: git
-
-- name: install git
-  hosts: fedora
-  tasks:
-  - name: install git
-    dnf:
-      name: git
 
 - name: install config
   hosts: all
