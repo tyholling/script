@@ -7,6 +7,7 @@
       - bat
       - btop
       - jq
+      - podman
       - tmux
       - vim
 
@@ -21,5 +22,6 @@
       - btop
       - git-delta
       - jq
+      - podman
       - tmux
       - vim
