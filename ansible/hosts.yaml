@@ -1,12 +1,10 @@
 qemu:
   hosts:
+    centos:
+      ansible_user: root
     debian:
       ansible_user: root
     fedora:
-      ansible_user: root
-    oracle:
-      ansible_user: root
-    redhat:
       ansible_user: root
     ubuntu:
       ansible_user: root
