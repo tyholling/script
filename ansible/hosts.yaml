@@ -6,8 +6,6 @@ qemu:
       ansible_user: root
     oracle:
       ansible_user: root
-    photon:
-      ansible_user: root
     redhat:
       ansible_user: root
     ubuntu:
