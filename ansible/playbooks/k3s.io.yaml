@@ -27,21 +27,3 @@
       kubectl create namespace ingress-nginx
       helm install ingress-nginx ingress-nginx/ingress-nginx --wait \
       --namespace ingress-nginx --set controller.ingressClassResource.default=true
-  - name: install kubectx
-    shell: |
-      cd $(mktemp -d)
-      wget https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubectx_v0.9.5_linux_arm64.tar.gz
-      tar xf kubectx_v0.9.5_linux_arm64.tar.gz kubectx
-      mv kubectx /usr/local/bin/kc
-  - name: install kubens
-    shell: |
-      cd $(mktemp -d)
-      wget https://github.com/ahmetb/kubectx/releases/download/v0.9.5/kubens_v0.9.5_linux_arm64.tar.gz
-      tar xf kubens_v0.9.5_linux_arm64.tar.gz kubens
-      mv kubens /usr/local/bin/kn
-  - name: install k9s
-    shell: |
-      cd $(mktemp -d)
-      wget https://github.com/derailed/k9s/releases/download/v0.27.4/k9s_Linux_arm64.tar.gz
-      tar xf k9s_Linux_arm64.tar.gz k9s
-      mv k9s /usr/local/bin/
