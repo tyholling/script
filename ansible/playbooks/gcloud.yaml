@@ -1,0 +1,15 @@
+- name: gcloud
+  hosts: fedora
+  tasks:
+  - name: add google cloud sdk repo
+    copy:
+      src: ./gcloud/google-cloud-sdk.repo
+      dest: /etc/yum.repos.d/google-cloud-sdk.repo
+  - name: update cache
+    dnf:
+      update_cache: true
+  - name: install google-cloud-cli
+    dnf:
+      name:
+      - google-cloud-cli
+      - google-cloud-sdk-gke-gcloud-auth-plugin

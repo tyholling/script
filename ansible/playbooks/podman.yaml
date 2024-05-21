@@ -1,4 +1,4 @@
-- name: install podman
+- name: podman
   hosts: fedora
   tasks:
   - name: install podman

@@ -1,0 +1,7 @@
+- name: update
+  hosts: fedora
+  tasks:
+  - name: update
+    dnf:
+      name: "*"
+      state: latest

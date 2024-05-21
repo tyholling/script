@@ -1,4 +1,4 @@
-- name: install common tools
+- name: common
   hosts: centos
   tasks:
   - name: install common tools
@@ -10,7 +10,7 @@
       - tmux
       - vim
 
-- name: install common tools
+- name: common
   hosts: debian
   tasks:
   - apt:
@@ -25,7 +25,7 @@
       - tmux
       - vim
 
-- name: install common tools
+- name: common
   hosts: fedora
   tasks:
   - name: install common tools
@@ -34,16 +34,17 @@
       - ack
       - bat
       - btop
+      - fzf
       - git
       - git-delta
+      - golang
       - helm
-      - jq
       - kubernetes-client
+      - make
       - podman
       - tmux
-      - vim
 
-- name: install common tools
+- name: common
   hosts: ubuntu
   tasks:
   - apt:

@@ -1,4 +1,4 @@
-- name: install k3s
+- name: k3s.io
   hosts: fedora
   tasks:
   - name: install k3s

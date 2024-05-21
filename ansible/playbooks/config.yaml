@@ -1,4 +1,4 @@
-- name: purge config
+- name: config
   hosts: all
   tasks:
   - name: remove bash history
@@ -22,9 +22,6 @@
   - name: remove original kickstart config
     file: { state: "absent", path: "/root/original-ks.cfg" }
 
-- name: install ssh keys
-  hosts: all
-  tasks:
   - name: install ssh private key
     copy:
       src: ~/.ssh/id_ed25519
@@ -36,9 +33,6 @@
       dest: /root/.ssh/id_ed25519.pub
       mode: 0400
 
-- name: install config
-  hosts: all
-  tasks:
   - name: checkout config
     git:
       repo: "git@github.com:tyholling/config.git"
