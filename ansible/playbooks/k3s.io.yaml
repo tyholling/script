@@ -4,7 +4,6 @@
   - name: install k3s
     shell: |
       curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable traefik" sh -
-      kubectl completion bash > /etc/bash_completion.d/kubectl.sh
       mkdir -p /root/.kube
       cp /etc/rancher/k3s/k3s.yaml /root/.kube/config
   - name: stop k3s service
