@@ -1,4 +1,0 @@
-mirrors:
-  localhost:
-    endpoint:
-    - "http://localhost:5000"
