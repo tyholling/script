@@ -1,4 +1,30 @@
 - name: terran
+  hosts: debian
+  tasks:
+  - name: add opentofu gpg key
+    shell: |
+      curl -L https://packages.opentofu.org/opentofu/tofu/gpgkey | gpg --dearmor --yes -o /etc/apt/keyrings/opentofu.gpg
+  - name: add opentofu repo
+    copy:
+      src: ./terran/opentofu.sources
+      dest: /etc/apt/sources.list.d/opentofu.sources
+      mode: 0644
+  - name: update cache
+    apt:
+      update_cache: true
+  - name: install opentofu
+    apt:
+      name: tofu
+  - name: add opentofu alias
+    shell: |
+      ln -fs /usr/bin/tofu /usr/local/bin/tf
+  - name: install terragrunt
+    shell: |
+      cd $(mktemp -d)
+      wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.58.14/terragrunt_linux_arm64
+      install -m 0755 terragrunt_linux_arm64 /usr/local/bin/tg
+
+- name: terran
   hosts: fedora
   tasks:
   - name: add opentofu repo
@@ -14,7 +40,7 @@
       name: tofu
   - name: add opentofu alias
     shell: |
-      ln -s /usr/bin/tofu /usr/local/bin/tf
+      ln -fs /usr/bin/tofu /usr/local/bin/tf
   - name: install terragrunt
     shell: |
       cd $(mktemp -d)

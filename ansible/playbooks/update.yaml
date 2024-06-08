@@ -1,4 +1,12 @@
 - name: update
+  hosts: debian
+  tasks:
+  - name: update
+    apt:
+      name: "*"
+      state: latest
+
+- name: update
   hosts: fedora
   tasks:
   - name: update

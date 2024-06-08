@@ -18,12 +18,17 @@
       - ack
       - bat
       - btop
+      - curl
+      - fzf
       - git
+      - golang
       - jq
       - kubernetes-client
+      - make
       - podman
       - tmux
       - vim
+      - wget
 
 - name: common
   hosts: fedora
@@ -34,15 +39,19 @@
       - ack
       - bat
       - btop
+      - curl
       - fzf
       - git
       - git-delta
       - golang
       - helm
+      - jq
       - kubernetes-client
       - make
       - podman
       - tmux
+      - vim
+      - wget
 
 - name: common
   hosts: ubuntu

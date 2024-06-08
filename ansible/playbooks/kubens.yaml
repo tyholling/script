@@ -1,5 +1,5 @@
 - name: kubens
-  hosts: fedora
+  hosts: all
   tasks:
   - name: install kubectx
     shell: |
