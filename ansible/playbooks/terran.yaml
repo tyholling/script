@@ -1,0 +1,22 @@
+- name: terran
+  hosts: fedora
+  tasks:
+  - name: add opentofu repo
+    copy:
+      src: ./terran/opentofu.repo
+      dest: /etc/yum.repos.d/opentofu.repo
+      mode: 0644
+  - name: update cache
+    dnf:
+      update_cache: true
+  - name: install opentofu
+    dnf:
+      name: tofu
+  - name: add opentofu alias
+    shell: |
+      ln -s /usr/bin/tofu /usr/local/bin/tf
+  - name: install terragrunt
+    shell: |
+      cd $(mktemp -d)
+      wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.58.14/terragrunt_linux_arm64
+      install -m 0755 terragrunt_linux_arm64 /usr/local/bin/tg

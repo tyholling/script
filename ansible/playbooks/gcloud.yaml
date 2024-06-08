@@ -5,6 +5,7 @@
     copy:
       src: ./gcloud/google-cloud-sdk.repo
       dest: /etc/yum.repos.d/google-cloud-sdk.repo
+      mode: 0644
   - name: update cache
     dnf:
       update_cache: true

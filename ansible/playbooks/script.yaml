@@ -3,3 +3,4 @@
 - import_playbook: config.yaml
 - import_playbook: kubens.yaml
 - import_playbook: gcloud.yaml
+- import_playbook: terran.yaml
