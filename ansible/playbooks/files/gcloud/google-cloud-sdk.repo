@@ -1,5 +1,5 @@
-[google-cloud-cli]
-name=Google Cloud CLI
+[google-cloud-sdk]
+name=Google Cloud SDK
 baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el9-aarch64
 enabled=1
 gpgcheck=1

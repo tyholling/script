@@ -43,7 +43,6 @@
       - git
       - git-delta
       - golang
-      - helm
       - jq
       - make
       - podman
