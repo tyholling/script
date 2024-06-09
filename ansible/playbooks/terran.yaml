@@ -1,5 +1,5 @@
 - name: terran
-  hosts: debian
+  hosts: debian, ubuntu
   tasks:
   - name: add opentofu gpg key
     shell: |

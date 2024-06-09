@@ -23,7 +23,6 @@
       - git
       - golang
       - jq
-      - kubernetes-client
       - make
       - podman
       - tmux
@@ -46,7 +45,6 @@
       - golang
       - helm
       - jq
-      - kubernetes-client
       - make
       - podman
       - tmux
@@ -61,8 +59,14 @@
       - ack
       - bat
       - btop
+      - curl
+      - fzf
       - git
+      - git-delta
+      - golang
       - jq
+      - make
       - podman
       - tmux
       - vim
+      - wget

@@ -1,6 +1,12 @@
 - name: kubens
   hosts: all
   tasks:
+  - name: install kubectl
+    shell: |
+      cd $(mktemp -d)
+      wget https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl
+      install -m 0755 kubectl /usr/local/bin/kubectl
+      kubectl completion bash > /etc/bash_completion.d/kubectl.sh
   - name: install kubectx
     shell: |
       cd $(mktemp -d)
@@ -19,6 +25,3 @@
       wget https://github.com/derailed/k9s/releases/download/v0.32.4/k9s_Linux_arm64.tar.gz
       tar xf k9s_Linux_arm64.tar.gz k9s
       install -m 0755 k9s /usr/local/bin/k9s
-  - name: install kubectl completion
-    shell: |
-      kubectl completion bash > /etc/bash_completion.d/kubectl.sh

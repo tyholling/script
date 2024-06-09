@@ -1,5 +1,5 @@
 - name: update
-  hosts: debian
+  hosts: debian, ubuntu
   tasks:
   - name: update
     apt:
