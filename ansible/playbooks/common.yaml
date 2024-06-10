@@ -1,16 +1,4 @@
 - name: common
-  hosts: centos
-  tasks:
-  - name: install common tools
-    dnf:
-      name:
-      - git
-      - jq
-      - podman
-      - tmux
-      - vim
-
-- name: common
   hosts: debian
   tasks:
   - apt:

@@ -1,6 +1,6 @@
 qemu:
   hosts:
-    centos:
+    coreos:
     debian:
     fedora:
     ubuntu:
