@@ -1,48 +1,16 @@
 - name: terran
-  hosts: debian, ubuntu
+  hosts: all
   tasks:
-  - name: add opentofu gpg key
+  - name: install terraform
     shell: |
-      curl -L https://packages.opentofu.org/opentofu/tofu/gpgkey | gpg --dearmor --yes -o /etc/apt/keyrings/opentofu.gpg
-  - name: add opentofu repo
-    copy:
-      src: ./terran/opentofu.sources
-      dest: /etc/apt/sources.list.d/opentofu.sources
-      mode: 0644
-  - name: update cache
-    apt:
-      update_cache: true
-  - name: install opentofu
-    apt:
-      name: tofu
-  - name: add opentofu alias
-    shell: |
-      ln -fs /usr/bin/tofu /usr/local/bin/tf
+      cd $(mktemp -d)
+      wget https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_linux_arm64.zip
+      unzip terraform_1.8.5_linux_arm64.zip terraform
+      install -m 0755 terraform /usr/local/bin/terraform
+      ln -fs /usr/local/bin/terraform /usr/local/bin/tf
   - name: install terragrunt
     shell: |
       cd $(mktemp -d)
-      wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.58.14/terragrunt_linux_arm64
-      install -m 0755 terragrunt_linux_arm64 /usr/local/bin/tg
-
-- name: terran
-  hosts: fedora
-  tasks:
-  - name: add opentofu repo
-    copy:
-      src: ./terran/opentofu.repo
-      dest: /etc/yum.repos.d/opentofu.repo
-      mode: 0644
-  - name: update cache
-    dnf:
-      update_cache: true
-  - name: install opentofu
-    dnf:
-      name: tofu
-  - name: add opentofu alias
-    shell: |
-      ln -fs /usr/bin/tofu /usr/local/bin/tf
-  - name: install terragrunt
-    shell: |
-      cd $(mktemp -d)
-      wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.58.14/terragrunt_linux_arm64
-      install -m 0755 terragrunt_linux_arm64 /usr/local/bin/tg
+      wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.59.5/terragrunt_linux_arm64
+      install -m 0755 terragrunt_linux_arm64 /usr/local/bin/terragrunt
+      ln -fs /usr/local/bin/terragrunt /usr/local/bin/tg
