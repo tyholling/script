@@ -22,12 +22,12 @@
   - name: install k9s
     shell: |
       cd $(mktemp -d)
-      wget https://github.com/derailed/k9s/releases/download/v0.32.4/k9s_Linux_arm64.tar.gz
+      wget https://github.com/derailed/k9s/releases/download/v0.32.5/k9s_Linux_arm64.tar.gz
       tar xf k9s_Linux_arm64.tar.gz k9s
       install -m 0755 k9s /usr/local/bin/k9s
   - name: install helm
     shell: |
       cd $(mktemp -d)
-      wget https://get.helm.sh/helm-v3.15.1-linux-arm64.tar.gz
-      tar xf helm-v3.15.1-linux-arm64.tar.gz linux-arm64/helm
+      wget https://get.helm.sh/helm-v3.16.2-linux-arm64.tar.gz
+      tar xf helm-v3.16.2-linux-arm64.tar.gz linux-arm64/helm
       install -m 0755 linux-arm64/helm /usr/local/bin/helm
